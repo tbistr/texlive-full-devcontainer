@@ -1,6 +1,6 @@
 {
   "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
-  "latex-workshop.latex.autoBuild.run": "onFileChange",
+  "latex-workshop.latex.autoBuild.run": "onSave",
   "latex-workshop.latex.autoClean.run": "onBuilt",
   "editor.formatOnSave": true,
   // Recipe の定義
