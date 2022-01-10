@@ -1,1 +1,5 @@
+texlive-fullが入ったdevcontainerです。
 
+Dockerfileの内容を事前にビルドしてdockerhubに登録してあるので、高速に環境構築ができます。
+
+保存時に自動でビルドされ、build/以下に配置されます。
