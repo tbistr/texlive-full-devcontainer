@@ -4,4 +4,6 @@
     "extensions": [
         "james-yu.latex-workshop"
     ],
+    "updateRemoteUserUID": true,
+    "remoteUser": "vscode",
 }
