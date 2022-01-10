@@ -1,0 +1,7 @@
+{
+    "name": "texlive-full-devcontainer",
+    "dockerFile": "Dockerfile.remote",
+    "extensions": [
+        "james-yu.latex-workshop"
+    ],
+}

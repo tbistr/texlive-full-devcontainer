@@ -1,0 +1,30 @@
+\documentclass[11pt,a4paper,oneside,openany]{jsreport}
+
+% 目次等にハイパーリンクをつけるための設定
+\usepackage[dvipdfmx, bookmarkstype=toc, colorlinks=false, pdfborder={0 0 0}, bookmarks=true, bookmarksnumbered=true]{hyperref}
+\usepackage{pxjahyper}
+
+% 図 http://www.yamamo10.jp/yamamoto/comp/latex/make_doc/insert_fig/index.php
+\usepackage[dvipdfmx]{graphicx}
+
+\begin{document}
+
+\pagenumbering{roman} % ページ番号をローマ数字に
+\input{./contents/title.tex}
+
+\input{./contents/abstract.tex}
+
+% 目次等
+\tableofcontents
+% \listoffigures
+% \listoftables
+
+\input{./chapters/1.tex}
+\pagenumbering{arabic} % ページ番号をアラビア数字に、なぜかここに挿入する必要がある
+\input{./chapters/2.tex}
+\input{./chapters/3.tex}
+\input{./chapters/4.tex}
+
+\input{./contents/reference.tex}
+
+\end{document}

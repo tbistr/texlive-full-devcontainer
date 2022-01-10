@@ -1,0 +1,144 @@
+{
+  "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+  "latex-workshop.latex.autoBuild.run": "onFileChange",
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "editor.formatOnSave": true,
+  // Recipe の定義
+  "latex-workshop.latex.recipes": [
+    // LaTeX(pLaTeX) で書かれた文書のビルドレシピ
+    {
+      "name": "pLaTeX",
+      "tools": [
+        "latexmk (pLaTeX)"
+      ]
+    },
+    // LaTeX(pdfLaTeX) で書かれた文書のビルドレシピ
+    {
+      "name": "pdfLaTeX",
+      "tools": [
+        "latexmk (pdfLaTeX)"
+      ]
+    },
+    // LaTeX(upLaTeX) で書かれた文書のビルドレシピ
+    {
+      "name": "upLaTeX",
+      "tools": [
+        "latexmk (upLaTeX)"
+      ]
+    },
+    // XeLaTeX で書かれた文書のビルドレシピ
+    {
+      "name": "XeLaTeX",
+      "tools": [
+        "latexmk (XeLaTeX)"
+      ]
+    },
+    // LuaLaTeX で書かれた文書のビルドレシピ
+    {
+      "name": "LuaLaTeX",
+      "tools": [
+        "latexmk (LuaLaTeX)"
+      ]
+    },
+  ],
+  // ビルドコマンド
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk (pLaTeX)",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "latexmk (pdfLaTeX)",
+      "command": "latexmk",
+      "args": [
+        "-pdf",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "latexmk (upLaTeX)",
+      "command": "latexmk",
+      "args": [
+        "-uplatex",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "latexmk (XeLaTeX)",
+      "command": "latexmk",
+      "args": [
+        "-xelatex",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "latexmk (LuaLaTeX)",
+      "command": "latexmk",
+      "args": [
+        "-lualatex",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ]
+    }
+  ],
+  // .latexmkrc に書かれたディレクトリに設定すること
+  "latex-workshop.latex.outDir": "%DIR%/build",
+  // Viewer関係
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.view.pdf.zoom": "page-width",
+  // 使用パッケージのコマンドや環境の補完を有効にする
+  "latex-workshop.intellisense.package.enabled": true,
+  // デフォルトの使用レシピ
+  "latex-workshop.latex.recipe.default": "pLaTeX",
+  // 生成ファイルを削除するときに対象とするファイル
+  // デフォルト値に "*.synctex.gz" を追加
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.ist",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk",
+    "*.snm",
+    "*.nav",
+    "*.dvi",
+    "*.synctex.gz"
+  ],
+  // ファイルサイズが大きいなら自動保存を無効にする
+  // "latex-workshop.latex.autoBuild.run": "never",
+}
