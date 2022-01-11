@@ -1,24 +1,14 @@
-FROM ubuntu:20.04
-
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-    git \
-    wget \
-    perl \
-    ca-certificates \
-    sudo \
-    && apt-get autoremove -y \
-    && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/*
+FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu-21.04
 
 COPY tex.profile ./
 
-RUN wget --no-check-certificate https://texlive.texjp.org/2021/tlnet/install-tl-unx.tar.gz 
-RUN mkdir install-tl \
-    && tar xzf install-tl-unx.tar.gz -C install-tl --strip-components 1
-RUN ./install-tl/install-tl \
+RUN wget https://texlive.texjp.org/2021/tlnet/install-tl-unx.tar.gz \
+    && mkdir install-tl \
+    && tar xzf install-tl-unx.tar.gz -C install-tl --strip-components 1 \
+    && ./install-tl/install-tl \
     --profile ./tex.profile \
-    --repository http://texlive.texjp.org/2021/tlnet
+    --repository http://texlive.texjp.org/2021/tlnet \
+    && rm -r install-tl-unx.tar.gz install-tl
 
 # resolve dependencies of latexindent...
 RUN apt-get update \
@@ -30,18 +20,18 @@ RUN apt-get update \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
-RUN set -x \
-    && echo "ALL ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers.d/ALL \
-    && groupadd \
-    --gid 1000 \
-    vscode \
-    && useradd \
-    --uid 1000 \
-    --gid 1000 \
-    --home-dir /home/vscode \
-    --create-home \
-    --shell /bin/bash \
-    vscode
+# RUN set -x \
+#     && echo "ALL ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers.d/ALL \
+#     && groupadd \
+#     --gid 1000 \
+#     vscode \
+#     && useradd \
+#     --uid 1000 \
+#     --gid 1000 \
+#     --home-dir /home/vscode \
+#     --create-home \
+#     --shell /bin/bash \
+#     vscode
 
 USER vscode
 
