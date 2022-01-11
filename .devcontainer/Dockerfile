@@ -5,6 +5,8 @@ RUN apt-get update \
     git \
     wget \
     perl \
+    ca-certificates \
+    sudo \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
@@ -17,7 +19,6 @@ RUN mkdir install-tl \
 RUN ./install-tl/install-tl \
     --profile ./tex.profile \
     --repository http://texlive.texjp.org/2021/tlnet
-RUN echo 'export PATH="$PATH:/opt/texlive/2021/bin/x86_64-linux"' >> ~/.bashrc
 
 # resolve dependencies of latexindent...
 RUN apt-get update \
@@ -30,10 +31,6 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 RUN set -x \
-    && apt-get update \
-    && apt-get install -y --no-install-recommends \
-    sudo \
-    && apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/* \
     && echo "ALL ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers.d/ALL \
     && groupadd \
     --gid 1000 \
