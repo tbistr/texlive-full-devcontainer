@@ -1,11 +1,41 @@
 \documentclass[11pt,a4paper,oneside,openany]{jsreport}
 
+% フォント埋め込み 原ノ味フォント
+\usepackage[haranoaji]{pxchfon}
+
 % 目次等にハイパーリンクをつけるための設定
 \usepackage[dvipdfmx, bookmarkstype=toc, colorlinks=false, pdfborder={0 0 0}, bookmarks=true, bookmarksnumbered=true]{hyperref}
 \usepackage{pxjahyper}
 
 % 図 http://www.yamamo10.jp/yamamoto/comp/latex/make_doc/insert_fig/index.php
 \usepackage[dvipdfmx]{graphicx}
+
+% 修正時にアカを入れやすくする
+\usepackage{color}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+
+% ソースコードの貼り付け
+\usepackage{listings,jvlisting}
+\lstset{
+  basicstyle={\ttfamily},
+  identifierstyle={\small},
+  commentstyle={\smallitshape},
+  keywordstyle={\small\bfseries},
+  ndkeywordstyle={\small},
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},
+  numbers=left,
+  xrightmargin=0zw,
+  xleftmargin=3zw,
+  numberstyle={\scriptsize},
+  stepnumber=1,
+  numbersep=1zw,
+  lineskip=-0.5ex
+}
+\renewcommand{\lstlistingname}{ソースコード}
 
 \begin{document}
 
