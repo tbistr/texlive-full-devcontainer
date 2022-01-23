@@ -1,4 +1,4 @@
-texlive-fullが入ったdevcontainerです。
+本当にtexlive-fullが入ったdevcontainerです。
 
 Dockerfileの内容を事前にビルドしてdockerhubに登録してあるので、高速に環境構築ができます。
 
