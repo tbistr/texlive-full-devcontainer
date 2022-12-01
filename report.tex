@@ -1,0 +1,85 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[haranoaji]{luatexja-preset}
+
+\usepackage{here}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{graphicx}
+
+\lstset{
+    basicstyle={\ttfamily},
+    backgroundcolor={\color[gray]{.95}},
+    frame={tbrl},
+    breaklines=true,
+    columns=[l]{fullflexible},
+    numbers=left,
+    numberstyle={\scriptsize},
+    lineskip=-1ex,
+}
+
+
+\setlength{\textwidth}{\fullwidth}
+\setlength{\textheight}{40\baselineskip}
+\addtolength{\textheight}{\topskip}
+\setlength{\voffset}{-0.2in}
+\setlength{\topmargin}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+
+\title{Some Report}
+\author{TSUBOI Shotaro (1234567890)}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{examples}
+
+\subsection*{program}
+
+\begin{lstlisting}[caption={Hello, world},label={Hello, world},language={c++}]
+#include <iostream>
+
+int main() {
+    std::cout << "Hello World\n";
+    return 0;
+}
+\end{lstlisting}
+
+\subsection*{table}
+
+% https://www.tablesgenerator.com/latex_tables#
+\begin{table}[H]
+    \centering
+    \caption{caption}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        a & b & c & d & e \\ \hline
+        1 & 2 & 3 & 4 & 5 \\ \hline
+        a & b & c & d & e \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsection*{itemize}
+
+\begin{itemize}
+    \item hoge
+    \item huga
+    \item hage
+\end{itemize}
+
+\subsection*{enumerate}
+
+\begin{enumerate}
+    \item one
+    \item two
+    \item three
+\end{enumerate}
+
+\subsection*{paragraph}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+
+\end{document}

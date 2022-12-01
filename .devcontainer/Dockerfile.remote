@@ -1,1 +1,1 @@
-FROM tbistr/texlive-full:1.4
+FROM tbistr/texlive-full:2.0
