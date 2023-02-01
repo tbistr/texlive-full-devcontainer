@@ -1,16 +1,26 @@
 {
   "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
   "latex-workshop.latex.autoBuild.run": "onSave",
-  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.autoClean.run": "onFailed",
   "editor.formatOnSave": true,
   "latex-workshop.latex.recipes": [
     {
-      "name": "latexmk (lualatex)",
+      "name": "latexmk",
       "tools": [
-        "lualatexmk"
+        "latexmk"
       ]
     },
   ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "first",
   "latex-workshop.latex.outDir": "%DIR%/build",
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.view.pdf.zoom": "page-width",
