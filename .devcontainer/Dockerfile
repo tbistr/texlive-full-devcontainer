@@ -23,7 +23,7 @@ RUN curl https://tug.org/texlive/files/debian-equivs-2022-ex.txt --output texliv
     apt-get autoremove -qy --purge \
     && rm -rf /var/lib/apt/lists/*
 
-RUN wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
+RUN wget http://ftp.jaist.ac.jp/pub/CTAN/systems/texlive/tlnet/install-tl-unx.tar.gz && \
     tar xvf install-tl-unx.tar.gz && \
     cd install-tl-2* && \
     echo "selected_scheme scheme-full" >  texlive.profile && \
@@ -47,3 +47,4 @@ RUN apt-get update \
 
 USER vscode
 RUN echo 'export PATH=/usr/local/texlive/2022/bin/x86_64-linux:$PATH' >> ~/.bashrc
+USER root

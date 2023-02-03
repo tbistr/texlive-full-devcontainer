@@ -8,5 +8,5 @@ if [ $# = 0 ]; then
     exit 1
 fi
 
-docker build -t ghcr.io/tbistr/texlive-full:"$1" .
-docker push     ghcr.io/tbistr/texlive-full:"$1"
+docker build --no-cache -t ghcr.io/tbistr/texlive-full:"$1" .
+docker push ghcr.io/tbistr/texlive-full:"$1"
