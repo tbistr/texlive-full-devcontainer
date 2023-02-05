@@ -12,14 +12,14 @@
   - コンテナイメージはあるが、devcontainerに適した構成になっていない
 - texliveがフルで入っているイメージはない
   - (と、作ったときには思ってたけど、[公式であったり](https://hub.docker.com/r/texlive/texlive)した)
-- `.latexmkrc`とかが何なのか意味わからん(ので一回しか書きたくない)
+- `.latexmkrc`とかが何なのか意味わからん(ので1回しか書きたくない)
 - pLaTeXとかバージョンが色々あって意味わからん
 
 以上の課題をもとに、テンプレートを作りました。
 
 ## 特徴
 
-vscodeのdevcontainerをサポートして、その環境下で以下のサポートを受けられます
+vscodeのdevcontainerをサポートして、その環境下で以下のサポートを受けられます。
 
 - ベースイメージはmicrosoftのdevcontainer向けdebian-11
 - save時に自動でビルド
@@ -29,8 +29,13 @@ vscodeのdevcontainerをサポートして、その環境下で以下のサポ�
 
 ## Contribution
 
-正直TeXの環境、ビルド周りについては何も理解していないので、特に改善があればPRをください
+正直TeXの環境、ビルド周りについては何も理解していないので、特に改善があればPRをください。
 
 - `.latexmkrc`の改良
 - lualatex以外のサポート追加
 - 良い感じのサンプル`.tex`ファイルの追加
+
+## LICENCE
+
+これらの設定、Dockerfile、texのサンプルなどについて、著作権が発生するかどうかは判断が付きません。
+もし発生する場合、[CC0](https://creativecommons.jp/sciencecommons/aboutcc0/)とします。
