@@ -1,1 +1,1 @@
-FROM ghcr.io/tbistr/texlive-full:v1.1
+FROM ghcr.io/tbistr/texlive-full:v2.0

@@ -8,43 +8,35 @@ ENV LANG=C.UTF-8 \
 
 WORKDIR /tmp
 
-RUN curl https://tug.org/texlive/files/debian-equivs-2022-ex.txt --output texlive-local && \
-    sed -i "s/2022/9999/" texlive-local && \
-    sed -i "/Depends: freeglut3/d" texlive-local && \
-    apt-get update && \
-    apt-get install -qy --no-install-recommends equivs \
-    gpg gpg-agent \
-    rsync && \
-    equivs-build texlive-local && \
-    dpkg -i texlive-local_9999.99999999-1_all.deb && \
-    apt-get install -yf --no-install-recommends && \
-    rm -rf ./*texlive* && \
-    apt-get remove -y --purge equivs && \
-    apt-get autoremove -qy --purge \
-    && rm -rf /var/lib/apt/lists/*
+# install dummy package to satisfy dependencies of texlive-full for apt.
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive \
+    apt-get install -y \
+    equivs wget \
+    && rm -rf /var/lib/apt/lists/* \
+    && wget http://www.tug.org/texlive/files/debian-equivs-2023-ex.txt \
+    && equivs-build debian-equivs-2023-ex.txt \
+    && dpkg -i texlive-local_2023.99999999-1_all.deb
 
-RUN wget http://ftp.jaist.ac.jp/pub/CTAN/systems/texlive/tlnet/install-tl-unx.tar.gz && \
+# install texlive-full.
+RUN wget https://texlive.texjp.org/2023/tlnet/install-tl-unx.tar.gz && \
     tar xvf install-tl-unx.tar.gz && \
-    cd install-tl-2* && \
-    echo "selected_scheme scheme-full" >  texlive.profile && \
-    echo "tlpdbopt_install_docfiles 0" >> texlive.profile && \
-    echo "tlpdbopt_install_srcfiles 0" >> texlive.profile && \
-    echo "tlpdbopt_autobackup 0"       >> texlive.profile && \
-    echo "tlpdbopt_sys_bin /usr/bin"   >> texlive.profile && \
-    ./install-tl -profile texlive.profile && \
+    cd install-tl-* && \
+    echo "selected_scheme scheme-full" > ./texlive.profile && \
+    echo "option_doc 0" >> ./texlive.profile && \
+    echo "option_src 0" >> ./texlive.profile && \
+    ./install-tl -profile ./texlive.profile && \
     cd .. && \
     rm -rf install-tl-*
 
-# resolve dependencies of latexindent...
+# resolve dependencies of latexindent.
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     libyaml-tiny-perl \
     libfile-homedir-perl \
     libunicode-linebreak-perl \
-    && apt-get autoremove -y \
-    && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
 USER vscode
-RUN echo 'export PATH=/usr/local/texlive/2022/bin/x86_64-linux:$PATH' >> ~/.bashrc
+RUN echo 'export PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH' >> ~/.bashrc
 USER root
