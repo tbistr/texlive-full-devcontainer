@@ -37,5 +37,10 @@ vscodeのdevcontainerをサポートして、その環境下で以下のサポ�
 
 ## LICENCE
 
-これらの設定、Dockerfile、texのサンプルなどについて、著作権が発生するかどうかは判断が付きません。
-もし発生する場合、[CC0](https://creativecommons.jp/sciencecommons/aboutcc0/)とします。
+~~これらの設定、Dockerfile、texのサンプルなどについて、著作権が発生するかどうかは判断が付きません。~~
+~~もし発生する場合、[CC0](https://creativecommons.jp/sciencecommons/aboutcc0/)とします。~~
+
+調べた感じ、設定ファイルには著作権は付かないみたいなので気にしなくてよかった。
+（そもそもそんなに量無いので元々付かないとは思っていたけど。）
+サンプルの方も今のところ量が少ないし問題なさそう。
+もう少しサンプルを増やす予定なのでそうなったらCC0にする予定。
