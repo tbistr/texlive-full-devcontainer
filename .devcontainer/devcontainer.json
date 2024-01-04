@@ -1,11 +1,13 @@
 {
     "name": "texlive-full-devcontainer",
     "dockerFile": "Dockerfile.textlint",
-    "extensions": [
-        "james-yu.latex-workshop",
-        "hediet.vscode-drawio",
-        "taichi.vscode-textlint"
-    ],
-    "updateRemoteUserUID": true,
-    "remoteUser": "vscode"
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "james-yu.latex-workshop",
+                "hediet.vscode-drawio",
+                "taichi.vscode-textlint"
+            ]
+        }
+    }
 }
