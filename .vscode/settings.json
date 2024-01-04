@@ -15,31 +15,6 @@
     {
       "name": "latexmk",
       "command": "latexmk",
-      "args": [
-        // copied from `.latexmkrc`.
-        "-e",
-        "$latex = 'lualatex %O -synctex=1 -interaction=nonstopmode %S'",
-        "-e",
-        "$biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B'",
-        "-e",
-        "$bibtex = 'pbibtex %O %B'",
-        "-e",
-        "$makeindex = 'mendex %O -o %D %S'",
-        //
-        "-e",
-        "$max_repeat = 5",
-        "-e",
-        "$pdf_mode = 4",
-        //
-        "-e",
-        "$aux_dir = 'build/'",
-        "-e",
-        "$out_dir = 'build/'",
-        //
-        "-file-line-error",
-        "-cd",
-        "%DOC%"
-      ]
     }
   ],
   "latex-workshop.latexindent.args": [
