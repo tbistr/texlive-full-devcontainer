@@ -14,7 +14,10 @@
   "latex-workshop.latex.tools": [
     {
       "name": "latexmk",
-      "command": "latexmk",
+      "command": "texfot",
+      "args": [
+        "latexmk"
+      ]
     }
   ],
   "latex-workshop.latexindent.args": [
