@@ -8,18 +8,14 @@ ENV LANG=C.UTF-8 \
 
 WORKDIR /tmp
 
-# install dummy package to satisfy dependencies of texlive-full for apt.
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive \
     apt-get install -y \
-    equivs wget \
-    && rm -rf /var/lib/apt/lists/* \
-    && wget http://www.tug.org/texlive/files/debian-equivs-2023-ex.txt \
-    && equivs-build debian-equivs-2023-ex.txt \
-    && dpkg -i texlive-local_2023.99999999-1_all.deb
+    wget \
+    && rm -rf /var/lib/apt/lists/*
 
 # install texlive-full.
-RUN wget https://texlive.texjp.org/2023/tlnet/install-tl-unx.tar.gz && \
+RUN wget https://texlive.texjp.org/2024/tlnet/install-tl-unx.tar.gz && \
     tar xvf install-tl-unx.tar.gz && \
     cd install-tl-* && \
     echo "selected_scheme scheme-full" > ./texlive.profile && \
@@ -38,5 +34,5 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 USER vscode
-RUN echo 'export PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH' >> ~/.bashrc
+RUN echo 'export PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH' >> ~/.bashrc
 USER root
