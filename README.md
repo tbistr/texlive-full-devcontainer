@@ -20,9 +20,10 @@
 
 ## 特徴
 
-vscodeのdevcontainerをサポートして、その環境下で以下のサポートを受けられます。
+vscodeのdevcontainerで以下のサポートを受けられます。
 
 - ベースイメージはmicrosoftのdevcontainer向けdebian-11
+- マルチアーキテクチャ対応なので、Apple siliconでもネイティブ実行
 - save時に自動でビルド
 - 拡張機能の自動導入
 - ghcrにビルド済みイメージを配置しているため、手元でのビルドが不要
