@@ -35,4 +35,5 @@ RUN apt-get update \
 
 USER vscode
 RUN echo 'export PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH' >> ~/.bashrc
+RUN echo 'export PATH=/usr/local/texlive/2024/bin/aarch64-linux:$PATH' >> ~/.bashrc
 USER root
